@@ -43,7 +43,7 @@
 
 <script>
 export default {
-  name:"Login",
+  name: "Login",
   data: function() {
     return {
       password: "",
@@ -56,13 +56,13 @@ export default {
   methods: {
     login() {
       this.errors = [];
-      // if (!this.email) {
-      //   this.errors.push("Email is required");
-      // } else {
-      //   if (!this.regemail.test(this.email)) {
-      //     this.errors.push("Email not valid form");
-      //   }
-      // }
+      if (!this.email) {
+        this.errors.push("Email is required");
+      } else {
+        if (!this.regemail.test(this.email)) {
+          this.errors.push("Email not valid form");
+        }
+      }
       if (this.errors.length == 0) {
         this.$store
           .dispatch("users/loginUser", {
