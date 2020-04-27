@@ -41,7 +41,8 @@ ASP.net Core:
 + Search
 
 ## ToDo:
-+ Add categories
++ Add categories function
++ Update use local storage in comment save case (save comments for differen topics)
 + Add Role Based authorization
 + Edit/Delete Comments and Topics by owners
 + Comment replies
