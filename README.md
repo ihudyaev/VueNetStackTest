@@ -6,8 +6,8 @@ PostgreSQL v12
 Elastic Search v7.x
 ASP.net Core v3.1
 
-Steps to Run:
-##Postgre
+## Steps to Run:
+## Postgre
 1. Deploy database from ForumDb.sql to PostgreSQL. 
 ##ASP.net Core Api
 2. Open folder ihud.WebApi and run sln. Set port 4000 (used port in client solution) and uncheck use https.
