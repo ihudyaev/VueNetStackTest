@@ -42,8 +42,8 @@ ToDo:
 + Edit/Delete Comments and Topics by owners
 + Comment replies
 + Change to cookie based auth
-+ Index auto refresh
-+ Token Autorenew
++ Index autorefresh
++ Token autorenew
 + use https
 + change html templates
 
