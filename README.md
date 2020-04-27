@@ -6,7 +6,7 @@ PostgreSQL v12
 Elastic Search v7.x
 ASP.net Core v3.1
 
-## Steps to Run:
+### Steps to Run:
 ## Postgre
 1. Deploy database from ForumDb.sql to PostgreSQL. 
 ##ASP.net Core Api
@@ -23,7 +23,11 @@ ASP.net Core v3.1
 10. npm run serve
 11. Open http://localhost:8080
 
-
+## Conection Properties:
+Vue Js : /store/api.js
+ASP.net Core: 
+1. Elastic search - ConnectionToES class
+2. Postgre connection string - appsettings
 
 Functions
 Realeased:
