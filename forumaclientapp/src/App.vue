@@ -16,7 +16,7 @@ export default {
     NavBar
   },
   created: function() {
-     this.$store.dispatch("users/getUserInfo");
+    this.$store.dispatch("users/getUserInfo");
     axios.interceptors.response.use(undefined, function(err) {
       if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
         this.$store.dispatch("auth_logout");

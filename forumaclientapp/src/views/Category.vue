@@ -1,6 +1,6 @@
 <template>
   <div v-if="crnCat">
-      <h1 class="col-12">{{ crnCat.title }}</h1>
+    <h1 class="col-12">{{ crnCat.title }}</h1>
     <router-link class="btn btn-info" :to="'/'">
       Return To CategoryList
     </router-link>

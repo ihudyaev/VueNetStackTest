@@ -1,5 +1,5 @@
 <template>
-  <div class="comment-box col-8" id="comment">
+  <div class="comment-box col-12" id="comment">
     <div class="loader" v-show="loading">
       <span class="spinner"></span>
 
@@ -9,6 +9,15 @@
     </div>
 
     <form action="" method="post" @submit.prevent="submit">
+      <fieldset class="form-group" v-if="!usernamestore">
+        <p>Your user name:</p>
+        <input
+          v-model="username"
+          class="form-control form-control-sm"
+          type="text"
+          placeholder="User Name"
+        />
+      </fieldset>
       <fieldset class="form-group">
         <p>Enter your comment:</p>
         <textarea
@@ -17,16 +26,8 @@
           type="textrea"
           placeholder="Type your comment..."
           rows="3"
+          style="margin-top: 0px; margin-bottom: 0px; height: 98px;"
           required
-        />
-      </fieldset>
-      <fieldset class="form-group" v-if="!usernamestore">
-        <p>Your user name:</p>
-        <input
-          v-model="username"
-          class="form-control form-control-sm"
-          type="text"
-          placeholder="User Name"
         />
       </fieldset>
       <button
@@ -45,7 +46,7 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name:"AddTopicReplyForm",
+  name: "AddTopicReplyForm",
   data() {
     return {
       loading: false,
@@ -59,19 +60,19 @@ export default {
       this.errors = [];
       if (!this.username && !this.usernamestore) {
         this.errors.push("Username is required");
-      } 
-        if (!this.regusername.test(this.username) && !this.usernamestore) {
-          this.errors.push(
-            "Username not valid form( a-z and 0-9 values allow, 3-16 symbols)"
-          );
+      }
+      if (!this.regusername.test(this.username) && !this.usernamestore) {
+        this.errors.push(
+          "Username not valid form( a-z and 0-9 values allow, 3-16 symbols)"
+        );
       }
 
       if (this.errors.length == 0) {
         this.loading = true;
-        var usernameparameter = this.usernamestore  == null
+        var usernameparameter = this.isAnonym
           ? this.username
-          :  this.usernamestore;
-          console.log(usernameparameter);
+          : this.usernamestore;
+        console.log(usernameparameter);
         this.$store
           .dispatch("topicreplies/createTopicReply", {
             username: usernameparameter,
@@ -83,7 +84,6 @@ export default {
             this.comment = "";
             this.username = "";
           });
-          
       }
     }
   },
@@ -111,7 +111,7 @@ export default {
       },
       // сеттер:
       set: function(newValue) {
-          localStorage["username"] = newValue;
+        localStorage["username"] = newValue;
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
-  <div >
-      <h1 class="col-12">{{ this.$route.params.searchstring }}</h1>
+  <div>
+    <h1 class="col-12">{{ this.$route.params.searchstring }}</h1>
     <ul v-if="feed" class="list-group topic-previews mt-4">
       <SearchResultPreview
         v-for="sr in feed"
@@ -25,8 +25,9 @@ export default {
   setCategories() {},
   created() {
     this.$store.dispatch("search/getResults", {
-      searchstring:this.$route.params.searchstring,
-      size:10});
+      searchstring: this.$route.params.searchstring,
+      size: 10
+    });
   },
   computed: {
     ...mapGetters({

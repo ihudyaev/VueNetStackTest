@@ -1,10 +1,7 @@
 <template>
   <div class="constainer featurebox col-12">
     <div class="navbuttons pull-left row" v-if="crnTopic">
-      <router-link
-        class="btn btn-info border rounded"
-        :to="'/'"
-      >
+      <router-link class="btn btn-info border rounded" :to="'/'">
         Return To Category List
       </router-link>
       <router-link
@@ -16,23 +13,25 @@
     </div>
     <div class="topic-main" v-if="crnTopic">
       <div class="border border-info">
-      <h1 class="">{{ crnTopic.title }}</h1>
-      <div class="topic-post row">
-        
-        <div class="topic-meta col-8">
-          {{ formatDate(crnTopic.createdAt) }}
+        <h1 class="">{{ crnTopic.title }}</h1>
+        <div class="topic-post row">
+          <div class="topic-meta col-8">
+            {{ formatDate(crnTopic.createdAt) }}
+          </div>
+          <div class="col-8">
+            Author:
+            <router-link
+              class=".stretched-link"
+              :to="'/Profile/@' + crnTopic.UserName"
+            >
+              {{ crnTopic.userName }}
+            </router-link>
+          </div>
         </div>
-        <div class="col-8">Author:  <router-link 
-            class=".stretched-link"
-            :to="'/Profile/@' + crnTopic.UserName"
-          >
-            {{ crnTopic.userName }}
-          </router-link></div>
-      </div>
-      <h4 class="col-8 ">
+        <h4 class="col-8 ">
           {{ crnTopic.description }}
         </h4>
-        </div>
+      </div>
       <TopicReplyPreview
         v-for="topicReply in feed"
         :topicReply="topicReply"
@@ -56,7 +55,7 @@ export default {
     AddTopicReplyForm
   },
   methods: {
-     formatDate(dateString) {
+    formatDate(dateString) {
       return moment(dateString).format("MMMM Do, YYYY  h:mm:ss a");
     },
     setTopicReplies() {}

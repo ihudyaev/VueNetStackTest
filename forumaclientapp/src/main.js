@@ -1,17 +1,13 @@
 import Vue from "vue";
-import {BootstrapVue, IconsPlugin }  from 'bootstrap-vue'
+import { IconsPlugin } from "bootstrap-vue";
 import App from "./App.vue";
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import "bootswatch/dist/journal/bootstrap.min.css";
 import router from "./router";
 import store from "./store";
 import axios from "axios";
+import "material-design-icons-iconfont";
 
-
-//import "./assets/main.css";
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
-
+Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 
 const token = localStorage.getItem("user-token");
@@ -22,7 +18,6 @@ if (token) {
 new Vue({
   router,
   store,
-   BootstrapVue,
-   IconsPlugin,
+  IconsPlugin,
   render: h => h(App)
 }).$mount("#app");

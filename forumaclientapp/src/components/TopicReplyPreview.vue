@@ -1,34 +1,31 @@
 <template>
-<div class="col-lg-12 col-md-12">
-        <div class="post row  border border-primary">
-            <div class="col-8">
-                <div class=" posttext lead">
-                    <p>{{ topicReply.description }}</p>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="col-4 postinfo pull-left border border-success">
-                <div class="text-success"> {{ formatDate(topicReply.createdAt) }}</div>
-                <div >Author:  
-                  <router-link 
-                    v-if="!topicReply.isAnonym"
-                    class="link text-primary"
-                    :to="'/Profile/@' + username">    
-                    {{topicReply.userName}}
-                  </router-link>
-                  <span v-if="topicReply.isAnonym">{{topicReply.userName}}</span>
-                </div>
-                <div class="bg-gradient-success bg-success  p-1 mb-1 text-white rounded" v-if="!topicReply.isAnonym">Auth User</div>
-            </div>
-        <div class="clearfix"></div>
+  <div class="card border-info col-12 container">
+    <div class="row">
+      <div class="cardpost col-8">
+        <div class="card-body">
+          <h4 class="card-title">{{ topicReply.description }}</h4>
         </div>
+      </div>
+      <Postinfo
+        v-bind:displayname="topicReply.userName"
+        v-bind:updatedAt="topicReply.updatedAt"
+        v-bind:createdAt="topicReply.createdAt"
+        v-bind:isAnonym="topicReply.isAnonym"
+      >
+      </Postinfo>
+    </div>
   </div>
 </template>
 
 <script>
 import moment from "moment";
+import Postinfo from "@/components/Postinfo.vue";
+
 export default {
-  name:"TopicReplyPreview",
+  name: "TopicReplyPreview",
+  components: {
+    Postinfo
+  },
   props: ["topicReply"],
   methods: {
     formatDate(dateString) {

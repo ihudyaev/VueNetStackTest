@@ -1,11 +1,11 @@
 <template>
   <div class="Home">
-      <CategoryPreview
-        v-for="category in feed"
-        :key="category.id"
-        :category="category"
-        class="list-group-item list-group-item-action mb-3"
-      />
+    <CategoryPreview
+      v-for="category in feed"
+      :key="category.id"
+      :category="category"
+      class="list-group-item list-group-item-action mb-3"
+    />
   </div>
 </template>
 
